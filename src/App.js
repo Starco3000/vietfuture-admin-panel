@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import Sidebar from './components/Sidebar/Sidebar';
+import { Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App flex flex-col min-h-screen">
+      <Sidebar />
+      <div className="flex-grow">
+        <Routes>
+          <Route path='/admin' element={<Dashboard />} />
+        </Routes>
+      </div>
     </div>
   );
 }
